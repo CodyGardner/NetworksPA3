@@ -12,8 +12,9 @@ int main(int argc, char *argv[]){
   //Declarations
   ifstream ifs(argv[1]);
   int n = 0, nodei = atoi(argv[2]);
-  int **graph = NULL;
+  int **graph = NULL, *distances = NULL;
   bool flag = (argv[3][0] == '1'); //If argv[3][0] is 1, flag is on
+  bool *visited = NULL;
 
   //Check argument values
   if (ifs.fail()){
@@ -43,7 +44,10 @@ int main(int argc, char *argv[]){
   }
   buildGraph(ifs, graph);
 
-  printMatrix(n, graph);
+  //Build routing table
+  lsr(nodei, n, graph);
+
+
 
   return 0;
 }
