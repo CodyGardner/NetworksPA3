@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
   buildGraph(ifs, graph);
 
   //Build routing table
-  lsr(nodei, n, graph);
+  lsr(nodei, n, graph, flag);
 
 
 
